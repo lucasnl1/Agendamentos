@@ -1,6 +1,6 @@
-# Agendamentos: Sua agenda turbinada com Python, Docker e PostgreSQL! 
+# Agendamentos: Uma agenda com Python, Docker e PostgreSQL! 
 
-**Cansado de agendar serviços na mão?** O projeto Agendamentos chegou para te salvar! Desenvolvido em Python, com a força do Docker e a robustez do PostgreSQL, ele simplifica e agiliza o agendamento de serviços, tornando sua vida mais organizada e produtiva.
+**Cansado de agendar serviços na mão?** Desenvolvido em Python, com a força do Docker e a robustez do PostgreSQL, ele simplifica e agiliza o agendamento de serviços, tornando sua vida mais organizada e produtiva.
 
 ###  O que você encontra aqui:
 
@@ -25,4 +25,3 @@ Este projeto é open source e está aberto a contribuições! Se você tem algum
 * Para mais detalhes sobre a configuração e execução do projeto, consulte a documentação completa no repositório.
 * Sinta-se à vontade para abrir issues caso encontre algum problema ou tenha alguma sugestão.
 
-**Agende seus serviços com o Agendamentos e diga adeus à bagunça!**
