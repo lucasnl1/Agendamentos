@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Usuários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        li {
+            list-style-type: none;
+            background: #e0f2f1;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Usuários</h1>
+
+    <a href="{{ url_for('listar_agendamentos') }}">📋 Ver Agendamentos</a> 
+    <a href="{{ url_for('cadastro') }}">➕ Criar Novo Usuário</a> 
+    <a href="{{ url_for('logout') }}">🚪 Sair</a>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+
+    <ul>
+        {% for usuario in usuarios %}
+            <li>
+                {{ usuario[1] }} ({{ usuario[2] }})
+                <form action="{{ url_for('gerenciar_usuarios', usuario_id=usuario[0]) }}" method="post" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Tem certeza que deseja excluir este usuário?')">❌ Excluir</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

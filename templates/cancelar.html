@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancelar Agendamento</title>
+</head>
+<style>
+    body {
+       font-family: Arial, sans-serif;
+       background-color: #f0f8f5;
+       color: #004d40;
+       text-align: center;
+       margin: 0;
+       padding: 0;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 100vh;
+   }
+   main {
+       background: white;
+       padding: 20px;
+       border-radius: 10px;
+       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+       width: 100%;
+       max-width: 400px;
+   }
+   header {
+       background-color: #00796b;
+       color: white;
+       width: 90%;
+       padding: 20px;
+       font-size: 24px;
+       text-align: center;
+       border-radius: 25px;
+   }
+   label {
+       display: block;
+       margin: 10px 0 5px;
+   }
+   input, select, button {
+       width: 90%;
+       padding: 10px;
+       margin-bottom: 15px;
+       border: 1px solid #ccc;
+       border-radius: 5px;
+   }
+   select {
+       width: 95%;
+       padding: 10px;
+       margin-bottom: 15px;
+       border: 1px solid #ccc;
+       border-radius: 5px;
+   }
+   button {
+       background-color: #2ecc71;
+       color: white;
+       font-size: 16px;
+       cursor: pointer;
+   }
+   button:hover {
+       background-color: #27ae60;
+   }
+   #mensagem {
+       text-align: center;
+       font-weight: bold;
+       margin-top: 10px;
+   }
+   .input-group {
+       display: flex;
+       gap: 10px;
+   }
+
+   .input-group div {
+       flex: 1;
+   }
+   @media screen and (max-width: 768px) {
+       .container {
+           max-width: 90%;
+       }
+       header {
+           font-size: 20px;
+           padding: 15px;
+       }
+   }
+
+   @media screen and (max-width: 480px) {
+       .container {
+           max-width: 95%;
+       }
+       header {
+           font-size: 18px;
+           padding: 10px;
+       }
+       button {
+           font-size: 14px;
+       }
+   }
+   @media screen and (max-width: 480px) {
+       .input-group {
+           flex-direction: column;
+       }
+   }
+</style>
+<body>
+    <main>
+        <header>
+            <h1>Cancelar</h1>
+            <h2>Agendamento</h2>
+        </header>
+
+    <form action="{{ url_for('cancelar_agendamento') }}" method="post">
+        <label for="cpf">Digite seu CPF:</label>
+        <input type="text" id="cpf" name="cpf" placeholder="Apenas números" required>
+        <button type="submit">❌ Cancelar Agendamento</button>
+    </form>
+            {% if mensagem %}
+                <p style="color: green;">{{ mensagem }}</p>
+            {% endif %}
+        
+            {% if erro %}
+                <p style="color: red;">{{ erro }}</p>
+            {% endif %}
+    <h2><a href="{{ url_for('meu_agendamento') }}"><button>⬅️ Voltar</button></a></h2>
+    <h2></h2><a href="{{ url_for('home') }}"><button>🏠 Início</button></a><h2></h2>
+
+        
+       
+    </main>
+</body>
+</html>
